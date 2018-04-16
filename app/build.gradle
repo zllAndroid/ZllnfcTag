@@ -14,19 +14,29 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            zipAlignEnabled false
+            //移除无用的resource文件
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
-
+repositories {
+    maven { url "https://jitpack.io"}
+}
+//repositories {
+//    flatDir {
+//        dirs project(':nfcsdk').file('libs')
+//    }
+//}
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:27.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support.test:runner:1.0.1'
     compile 'com.android.support.test.espresso:espresso-core:3.0.1'
-
-//    compile 'com.github.zllAndroid:zllnfc:v1.1.1'
-    compile project(path: ':nfcsdk')
+    //    compile 'com.github.zllAndroid:zllnfc:v1.1.1'
+        compile project(path: ':nfcsdk')
+//    compile 'com.github.zllAndroid:ZllnfcTag:v1.0.0'
 }
