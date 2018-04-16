@@ -2,7 +2,7 @@
 // Created by xuhua on 2018/3/15.
 //
 
-#include "ntag.h"
+#include "NTag.h"
 
 NTag::NTag()
 {

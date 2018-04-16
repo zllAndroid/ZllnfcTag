@@ -10,6 +10,9 @@ JNIEXPORT jstring JNICALL Java_com_rfidandcard_www_nfcsdk_NFC_bytesToHex(JNIEnv 
     if(len == 0){
         return NULL;
     }
+
+
+//
     jboolean  copy = false;
     jbyte *dptr = env->GetByteArrayElements(bytes,&copy);
     int n = 0;
